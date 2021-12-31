@@ -1,5 +1,5 @@
 export type Cat = {
-  breeds: string[];
+  breeds: [];
   id: string;
   url: string;
   width: number;
