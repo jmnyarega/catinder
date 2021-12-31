@@ -2,24 +2,27 @@ import React from "react";
 
 // third party libs
 import styled from "styled-components";
+import Layout from "./components/layout";
 
 // page components
 import Swipe from "./pages/swipe";
 
 const App: React.FC = () => {
   return (
-    <Container>
-      <Swipe />
-    </Container>
+    <Layout>
+      <Container>
+        <Swipe />
+      </Container>
+    </Layout>
   );
 };
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 3rem;
 
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
 `;
 
 export default App;
