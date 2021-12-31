@@ -21,7 +21,7 @@ const RoutesComponent = () => (
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 4rem;
 `;
 
 export default RoutesComponent;

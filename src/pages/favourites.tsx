@@ -1,18 +1,14 @@
-import React from "react";
-import { useVote } from "../hooks/vote";
+// third party libs
 import { List, Avatar, Button, Card } from "antd";
 import { HeartFilled } from "@ant-design/icons";
 
+// hooks
+import { useVote } from "../hooks/vote";
+
 /* @TODO
- *  - Add routes
- *  - Favoutes
- *  - Delete votes
- *
- *  - namings of functions
- *  - refactor
- *
  *  - navbar
  *  - Homepage
+ *  - styles
  *
  *  - Add tests for every component
  *  - Refactor....
@@ -33,7 +29,7 @@ const Favourites: React.FC = () => {
   return (
     <Card
       loading={isLoading}
-      style={{ minWidth: "500px" }}
+      style={{ minWidth: 400 }}
       title={
         <p>
           <HeartFilled

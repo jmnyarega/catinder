@@ -20,7 +20,7 @@ export const getCatById = async (imageId: string): Promise<Cat> => {
 
 export const getVottedCats = async (): Promise<Vote[]> => {
   const cats = await Axios.get(`${URL}/votes`);
-  return cats.data;
+  return cats.data.filter((vote: Vote) => vote.value > 0);
 };
 
 export const removeVottedCat = async (voteId: number, imageId: string) => {
