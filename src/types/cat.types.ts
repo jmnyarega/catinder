@@ -15,8 +15,8 @@ export type Vote = {
 };
 
 export type Image = {
-  imageId: string;
-  url: string;
+  imageId: string | undefined;
+  url: string | undefined;
 };
 
 export type Votes = {

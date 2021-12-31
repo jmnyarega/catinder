@@ -1,5 +1,3 @@
-import React from "react";
-
 // third party libs
 import { Card } from "antd";
 
@@ -8,13 +6,13 @@ import CoverImage from "../components/coverImage";
 import actions from "../components/actions";
 
 // hooks
-import { useGetRandomCats } from "../hooks/getRandomCats";
+import { useGetCats } from "../hooks/randomCats";
 
 // services
 import { vote } from "../services/catsApi";
 
 const Swipe: React.FC = () => {
-  const [cat, isLoading, getRandomCats] = useGetRandomCats();
+  const [cat, isLoading, getRandomCats] = useGetCats();
 
   const handleSwipe = (value: number) => {
     getRandomCats();
@@ -22,22 +20,25 @@ const Swipe: React.FC = () => {
   };
 
   return (
-    <div>
-      <Card
-        size="small"
-        loading={isLoading}
-        hoverable
-        cover={
-          <CoverImage
-            url={cat?.url}
-            styles={{ width: 400, height: 400, objectFit: "cover" }}
-          />
-        }
-        actions={actions(handleSwipe)}
-      >
-        <Card.Meta title="Let's hangout!" />
-      </Card>
-    </div>
+    <Card
+      size="small"
+      loading={isLoading}
+      hoverable
+      cover={
+        <CoverImage
+          url={cat?.url || ""}
+          styles={{
+            width: 400,
+            height: 400,
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
+      }
+      actions={actions(handleSwipe)}
+    >
+      <Card.Meta title="Let's hangout!" />
+    </Card>
   );
 };
 

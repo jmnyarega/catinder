@@ -3,7 +3,7 @@ import URL from "../constants/url";
 
 // helpers
 import Axios from "../helpers/authentication";
-import { dislikeCat, likeCat, removeCat } from "./localstorage";
+import { dislikeCat, likeCat, removeCat } from "./store";
 
 // types
 import { Cat, Vote } from "../types/cat.types";
@@ -18,12 +18,12 @@ export const getCatById = async (imageId: string): Promise<Cat> => {
   return cat.data;
 };
 
-export const getFavouriteCats = async (): Promise<Vote[]> => {
+export const getVottedCats = async (): Promise<Vote[]> => {
   const cats = await Axios.get(`${URL}/votes`);
   return cats.data;
 };
 
-export const removeFavouriteCat = async (voteId: number, imageId: string) => {
+export const removeVottedCat = async (voteId: number, imageId: string) => {
   try {
     await Axios.delete(`${URL}/votes/${voteId}`);
     removeCat(imageId);
@@ -32,9 +32,13 @@ export const removeFavouriteCat = async (voteId: number, imageId: string) => {
   }
 };
 
-export const vote = async (imageId: string, value: number, url: string) => {
+export const vote = async (
+  imageId: string | undefined,
+  value: number,
+  url: string | undefined
+) => {
   const body: Vote = {
-    image_id: imageId,
+    image_id: imageId || "",
     sub_id: "josiah",
     value,
   };

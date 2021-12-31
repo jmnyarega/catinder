@@ -6,20 +6,20 @@ import { getRandomCatService } from "../services/catsApi";
 // types
 import { Cat } from "./../types/cat.types";
 
-export const useGetRandomCats = (): [Cat, boolean, Function] => {
-  const [cat, setCat] = useState<Cat[]>([]);
+export const useGetCats = (): [Cat | undefined, boolean, () => {}] => {
+  const [cat, setCat] = useState<Cat>();
   const [isLoading, setIsloading] = useState(false);
 
-  const getRandomCat = async () => {
+  const fetchCat = async () => {
     setIsloading(true);
     const randomCat = await getRandomCatService();
-    setCat(randomCat);
+    setCat(randomCat[0]);
     setIsloading(false);
   };
 
   useEffect(() => {
-    getRandomCat();
+    fetchCat();
   }, []);
 
-  return [cat[0], isLoading, getRandomCat];
+  return [cat, isLoading, fetchCat];
 };

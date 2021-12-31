@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetFavouriteCats } from "../hooks/getFavouriteCats";
+import { useVote } from "../hooks/vote";
 import { List, Avatar, Button, Card } from "antd";
 import { HeartFilled } from "@ant-design/icons";
 
@@ -11,19 +11,23 @@ import { HeartFilled } from "@ant-design/icons";
  *  - namings of functions
  *  - refactor
  *
+ *  - navbar
+ *  - Homepage
+ *
  *  - Add tests for every component
  *  - Refactor....
  *
  *  - Loader
+ *  - responsivenss
  *
  *  - Document
  */
 
 const Favourites: React.FC = () => {
-  const [favouriteCats, isLoading, , removeFavourite] = useGetFavouriteCats();
+  const [cats, isLoading, , deleteVote] = useVote();
 
   const removeFavouriteHandler = (voteId: any, imageId: string) => {
-    removeFavourite(voteId, imageId);
+    deleteVote(voteId, imageId);
   };
 
   return (
@@ -43,7 +47,7 @@ const Favourites: React.FC = () => {
       }
     >
       <List
-        dataSource={favouriteCats}
+        dataSource={cats}
         renderItem={(cat) => (
           <List.Item
             actions={[

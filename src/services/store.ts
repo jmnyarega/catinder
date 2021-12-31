@@ -1,6 +1,9 @@
 import { Image, Votes } from "../types/cat.types";
 
-export const likeCat = (imageId: string, url: string) => {
+export const likeCat = (
+  imageId: string | undefined,
+  url: string | undefined
+) => {
   let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
 
   cats = {
@@ -13,7 +16,10 @@ export const likeCat = (imageId: string, url: string) => {
   localStorage.setItem("cats", JSON.stringify(cats));
 };
 
-export const dislikeCat = (imageId: string, url: string) => {
+export const dislikeCat = (
+  imageId: string | undefined,
+  url: string | undefined
+) => {
   let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
 
   cats = {

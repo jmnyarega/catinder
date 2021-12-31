@@ -1,7 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-
 // third party libs
 import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
 
 // components
 import Layout from "./components/layout";
