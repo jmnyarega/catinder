@@ -1,14 +1,14 @@
 import { CloseCircleFilled, CheckCircleFilled } from "@ant-design/icons";
 
-const actions = (handleSwipeRight: () => void, handleSwipeLeft: () => void) => [
+const actions = (handleSwipe: (value: number) => void) => [
   <CloseCircleFilled
     key="swipe-left"
-    onClick={handleSwipeLeft}
+    onClick={() => handleSwipe(0)}
     style={{ color: "red", fontSize: 35 }}
   />,
   <CheckCircleFilled
     key="swipe-right"
-    onClick={handleSwipeRight}
+    onClick={() => handleSwipe(1)}
     style={{ color: "green", fontSize: 35 }}
   />,
 ];

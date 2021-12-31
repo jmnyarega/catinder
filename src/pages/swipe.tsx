@@ -11,19 +11,14 @@ import actions from "../components/actions";
 import { useGetRandomCats } from "../hooks/getRandomCats";
 
 // services
-import { likeCat, dislikeCat } from "../services/catsApi";
+import { vote } from "../services/catsApi";
 
 const Swipe: React.FC = () => {
   const [cat, isLoading, getRandomCats] = useGetRandomCats();
 
-  const handleSwipeLeft = () => {
+  const handleSwipe = (value: number) => {
     getRandomCats();
-    likeCat(cat?.id);
-  };
-
-  const handleSwipeRight = () => {
-    getRandomCats();
-    dislikeCat(cat?.id);
+    vote(cat?.id, value);
   };
 
   return (
@@ -38,7 +33,7 @@ const Swipe: React.FC = () => {
             styles={{ width: 400, height: 400, objectFit: "cover" }}
           />
         }
-        actions={actions(handleSwipeRight, handleSwipeLeft)}
+        actions={actions(handleSwipe)}
       >
         <Card.Meta title="Let's hangout!" />
       </Card>
