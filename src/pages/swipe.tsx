@@ -18,7 +18,7 @@ const Swipe: React.FC = () => {
 
   const handleSwipe = (value: number) => {
     getRandomCats();
-    vote(cat?.id, value);
+    vote(cat?.id, value, cat?.url);
   };
 
   return (

@@ -10,9 +10,16 @@ export type Vote = {
   image_id: string;
   sub_id: string;
   value: number;
+  url?: string;
+  id?: string;
+};
+
+export type Image = {
+  imageId: string;
+  url: string;
 };
 
 export type Votes = {
-  liked: Array<string>;
-  disliked: Array<string>;
+  liked: Image[];
+  disliked: Image[];
 };

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => (
-  <LayoutA>
+  <LayoutA style={{ background: "white" }}>
     <Header />
     {children}
   </LayoutA>

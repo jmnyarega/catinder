@@ -1,28 +1,28 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 // third party libs
 import styled from "styled-components";
-import Layout from "./components/layout";
 
-// page components
+// components
+import Layout from "./components/layout";
+import Favourites from "./pages/favourites";
 import Swipe from "./pages/swipe";
 
-const App: React.FC = () => {
-  return (
-    <Layout>
-      <Container>
-        <Swipe />
-      </Container>
-    </Layout>
-  );
-};
+const RoutesComponent = () => (
+  <Layout>
+    <Container>
+      <Routes>
+        <Route path="/" element={<Swipe />} />
+        <Route path="/favourites" element={<Favourites />} />
+      </Routes>
+    </Container>
+  </Layout>
+);
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 3rem;
-
-  min-height: calc(100vh - 100px);
 `;
 
-export default App;
+export default RoutesComponent;
