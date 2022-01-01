@@ -23,3 +23,7 @@ export type Votes = {
   liked: Image[];
   disliked: Image[];
 };
+
+export type IStyles = {
+  [Key: string]: React.CSSProperties;
+};

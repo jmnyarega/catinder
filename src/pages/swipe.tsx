@@ -20,26 +20,31 @@ const Swipe: React.FC = () => {
   };
 
   return (
-    <Card
-      size="small"
-      loading={isLoading}
-      hoverable
-      cover={
-        <CoverImage
-          url={cat?.url || ""}
-          styles={{
-            width: 400,
-            height: 400,
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-      }
-      actions={actions(handleSwipe)}
-    >
-      <Card.Meta title="Let's hangout!" />
-    </Card>
+    <div style={styles.container}>
+      <Card
+        loading={isLoading}
+        hoverable
+        cover={<CoverImage url={cat?.url || ""} styles={styles.coverImage} />}
+        actions={actions(handleSwipe)}
+      >
+        <Card.Meta title="Let's hangout!" />
+      </Card>
+    </div>
   );
+};
+
+const styles = {
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "4rem",
+  },
+  coverImage: {
+    width: 400,
+    height: 400,
+    objectFit: "cover",
+    objectPosition: "center",
+  },
 };
 
 export default Swipe;

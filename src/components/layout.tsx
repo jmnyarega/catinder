@@ -11,10 +11,16 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => (
-  <LayoutA style={{ background: "white" }}>
+  <LayoutA style={styles.layout}>
     <Header />
     {children}
   </LayoutA>
 );
+
+const styles = {
+  layout: {
+    background: "white",
+  },
+};
 
 export default Layout;

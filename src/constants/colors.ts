@@ -1,11 +1,6 @@
-interface Theme {
-  primary: string;
-  secondary: string;
-  accent: string;
-}
-
-export const theme: Theme = {
-  primary: "",
-  secondary: "",
-  accent: "",
+export const theme = {
+  colors: {
+    primary: "red",
+    accent: "teal",
+  },
 };
