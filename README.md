@@ -9,7 +9,10 @@
  - nodejs - LTS version
  - yarn or npm
 
-# To run the application locally on your machine
+### Design notes
+  - [design notes](./notes/design-notes.md)
+
+# Run application locally
 
 #### Download project from github using using git
   - Clone the repository
