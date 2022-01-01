@@ -1,5 +1,5 @@
 // third party libs
-import { Card } from "antd";
+import { Card, Spin } from "antd";
 
 // components
 import CoverImage from "../components/coverImage";
@@ -21,14 +21,16 @@ const Swipe: React.FC = () => {
 
   return (
     <div style={styles.container}>
-      <Card
-        loading={isLoading}
-        hoverable
-        cover={<CoverImage url={cat?.url || ""} styles={styles.coverImage} />}
-        actions={actions(handleSwipe)}
-      >
-        <Card.Meta title="Let's hangout!" />
-      </Card>
+      <Spin spinning={isLoading}>
+        <Card
+          loading={isLoading}
+          hoverable
+          cover={<CoverImage url={cat?.url || ""} styles={styles.coverImage} />}
+          actions={actions(handleSwipe)}
+        >
+          <Card.Meta title="Let's hangout!" />
+        </Card>
+      </Spin>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 // third party libs
-import { List, Avatar, Button, Card } from "antd";
+import { List, Avatar, Button, Card, Spin } from "antd";
 import { HeartFilled } from "@ant-design/icons";
 
 // hooks
@@ -8,12 +8,6 @@ import { theme } from "../constants/colors";
 import React from "react";
 
 /* @TODO
- *  - Add tests for every component
- *  - Refactor....
- *
- *  - Loader
- *  - responsivenss
- *
  *  - Document
  */
 
@@ -26,45 +20,46 @@ const Favourites: React.FC = () => {
 
   return (
     <div style={styles.container}>
-      <Card
-        loading={isLoading}
-        style={styles.card}
-        title={
-          <p>
-            <HeartFilled style={styles.like} />
-            Your Favourite Cats
-            <HeartFilled style={styles.like} />
-          </p>
-        }
-      >
-        <List
-          dataSource={cats}
-          renderItem={(cat) => (
-            <List.Item
-              actions={[
-                <Button
-                  onClick={() => removeFavouriteHandler(cat.id, cat.image_id)}
-                  type="primary"
-                  danger
-                >
-                  Remove
-                </Button>,
-              ]}
-            >
-              <List.Item.Meta
-                avatar={
-                  <Avatar
-                    src={cat.url}
-                    alt={cat.url}
-                    size={100}
-                    style={styles.avatar}
-                  />
-                }
-              />
-            </List.Item>
-          )}
-        />
-      </Card>
+      <Spin spinning={isLoading}>
+        <Card
+          style={styles.card}
+          title={
+            <p>
+              <HeartFilled style={styles.like} />
+              Your Favourite Cats
+              <HeartFilled style={styles.like} />
+            </p>
+          }
+        >
+          <List
+            dataSource={cats}
+            renderItem={(cat) => (
+              <List.Item
+                actions={[
+                  <Button
+                    onClick={() => removeFavouriteHandler(cat.id, cat.image_id)}
+                    type="primary"
+                    danger
+                  >
+                    Remove
+                  </Button>,
+                ]}
+              >
+                <List.Item.Meta
+                  avatar={
+                    <Avatar
+                      src={cat.url}
+                      alt={cat.url}
+                      size={100}
+                      style={styles.avatar}
+                    />
+                  }
+                />
+              </List.Item>
+            )}
+          />
+        </Card>
+      </Spin>
     </div>
   );
 };
