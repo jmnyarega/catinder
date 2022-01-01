@@ -1,7 +1,15 @@
 # Catinder
+  - Tinder app for cats
+
+### Screenshots
+   - Swipe
+   ![./screenshots/swipe.png]
+   
+   - Favourites
+   ![./screenshots/remove.png]
 
 ### System prerequisites
- - nodejs v10 or later
+ - nodejs - LTS version
  - yarn or npm
 
 ### To run the application locally on your machine
@@ -16,7 +24,7 @@
   - To run the application
 
 ```bash
-      yarn build && yarn start
+      yarn start
 ```
 
 ### To run tests
