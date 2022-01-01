@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import App from "../App";
+import Header from "../../components/header";
 import { Router } from "react-router-dom";
 import "@testing-library/jest-dom";
 import { createMemoryHistory } from "history";
@@ -20,7 +20,7 @@ const renderComponent = () => {
 
   render(
     <Router location={history.location} navigator={history}>
-      <App />
+      <Header />
     </Router>
   );
 };

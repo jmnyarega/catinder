@@ -6,7 +6,7 @@ import { getRandomCatService } from "../services/catsApi";
 // types
 import { Cat } from "./../types/cat.types";
 
-export const useGetCats = (): [Cat | undefined, boolean, () => {}] => {
+export const useGetCats = () => {
   const [cat, setCat] = useState<Cat>();
   const [isLoading, setIsloading] = useState(false);
 
@@ -21,5 +21,5 @@ export const useGetCats = (): [Cat | undefined, boolean, () => {}] => {
     fetchCat();
   }, []);
 
-  return [cat, isLoading, fetchCat];
+  return { cat, isLoading, fetchCat, setCat };
 };

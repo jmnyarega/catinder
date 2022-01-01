@@ -5,6 +5,7 @@ import { HeartFilled } from "@ant-design/icons";
 // hooks
 import { useVote } from "../hooks/vote";
 import { theme } from "../constants/colors";
+import React from "react";
 
 /* @TODO
  *  - Add tests for every component
@@ -17,7 +18,7 @@ import { theme } from "../constants/colors";
  */
 
 const Favourites: React.FC = () => {
-  const [cats, isLoading, , deleteVote] = useVote();
+  const { cats, isLoading, deleteVote } = useVote();
 
   const removeFavouriteHandler = (voteId: any, imageId: string) => {
     deleteVote(voteId, imageId);

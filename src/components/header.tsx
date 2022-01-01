@@ -16,11 +16,10 @@ const Header = () => {
       defaultSelectedKeys={["1"]}
       style={styles.container}
     >
-      <Menu.Item
-        key="1"
-        onClick={() => navigate("/")}
-        icon={<HomeFilled style={styles.homeMenuIcon} />}
-      />
+      <Menu.Item key="1" onClick={() => navigate("/")}>
+        <HomeFilled style={styles.homeMenuIcon} />
+        <span style={styles.logo}>Catinder</span>
+      </Menu.Item>
       <Menu.Item
         key="2"
         style={{ marginLeft: "auto" }}
@@ -29,8 +28,8 @@ const Header = () => {
       />
       <Menu.Item
         key="3"
+        disabled
         style={{ alignSelf: "flex-end" }}
-        onClick={() => {}}
         icon={<MessageFilled style={styles.messagesMenuIcon} />}
       />
     </Menu>
@@ -40,6 +39,7 @@ const Header = () => {
 const styles: IStyles = {
   container: {
     display: "flex",
+    alignItems: "center",
     position: "fixed",
     zIndex: 1,
     width: "100%",
@@ -47,6 +47,7 @@ const styles: IStyles = {
   homeMenuIcon: {
     paddingInline: 10,
     fontSize: 20,
+    color: theme.colors.primary,
   },
   favouritesMenuIcon: {
     color: theme.colors.primary,
@@ -57,6 +58,11 @@ const styles: IStyles = {
     color: theme.colors.accent,
     paddingInline: 10,
     fontSize: 20,
+  },
+  logo: {
+    fontFamily: "'Dancing Script', cursive",
+    fontSize: 25,
+    color: theme.colors.primary,
   },
 };
 

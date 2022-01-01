@@ -12,10 +12,10 @@ import { useGetCats } from "../hooks/randomCats";
 import { vote } from "../services/catsApi";
 
 const Swipe: React.FC = () => {
-  const [cat, isLoading, getRandomCats] = useGetCats();
+  const { cat, isLoading, fetchCat } = useGetCats();
 
   const handleSwipe = (value: number) => {
-    getRandomCats();
+    fetchCat();
     vote(cat?.id, value, cat?.url);
   };
 

@@ -1,6 +1,6 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
-import App from "../App";
+import Layout from "../../components/layout";
 import { Router } from "react-router-dom";
 import "@testing-library/jest-dom";
 import { createMemoryHistory } from "history";
@@ -20,11 +20,17 @@ const renderComponent = () => {
 
   render(
     <Router location={history.location} navigator={history}>
-      <App />
+      <Layout>
+        <div> This is my awesome layout </div>
+      </Layout>
     </Router>
   );
 };
 
-test("renders without error", async () => {
+describe("#Layout", () => {
   renderComponent();
+
+  it("should render children props", () => {
+    screen.getByText("This is my awesome layout");
+  });
 });

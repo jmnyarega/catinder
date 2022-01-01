@@ -7,7 +7,7 @@ import { getImageUrl } from "../services/store";
 // types
 import { Vote } from "./../types/cat.types";
 
-export const useVote = (): [Vote[], boolean, Function, Function] => {
+export const useVote = () => {
   const [cats, setCats] = useState<Vote[]>([]);
   const [isLoading, setIsloading] = useState(false);
 
@@ -31,5 +31,5 @@ export const useVote = (): [Vote[], boolean, Function, Function] => {
     getVotes();
   }, []);
 
-  return [cats, isLoading, getVotes, deleteVote];
+  return { cats, isLoading, getVotes, deleteVote, setCats };
 };
