@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useGetCats } from "../../hooks/randomCats";
 
-const cats = {
+const cat = {
   breeds: [],
   height: 281,
   id: "da7",
@@ -13,8 +13,8 @@ test("Get random cat", () => {
   const { result } = renderHook(() => useGetCats());
 
   act(() => {
-    result.current.setCat(cats);
+    result.current.setCat(cat);
   });
 
-  expect(result.current.cat).toBe(cats);
+  expect(result.current.cat).toBe(cat);
 });

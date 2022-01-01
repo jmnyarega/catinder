@@ -1,26 +1,26 @@
 import { Iimage, IsaveVotes } from "../types/cat.types";
 
-export const likeCat = (imageId: string, url: string) => {
+export const likeCat = (imageId: string, url: string, id: number) => {
   let cats: IsaveVotes = JSON.parse(localStorage.getItem("cats") || "{}");
 
   cats = {
     ...cats,
     liked: cats.liked
-      ? cats.liked.concat({ imageId, url })
-      : [{ imageId, url }],
+      ? cats.liked.concat({ imageId, url, id })
+      : [{ imageId, url, id }],
   };
 
   localStorage.setItem("cats", JSON.stringify(cats));
 };
 
-export const dislikeCat = (imageId: string, url: string) => {
+export const dislikeCat = (imageId: string, url: string, id: number) => {
   let cats: IsaveVotes = JSON.parse(localStorage.getItem("cats") || "{}");
 
   cats = {
     ...cats,
     disliked: cats.disliked
-      ? cats.disliked.concat({ imageId, url })
-      : [{ imageId, url }],
+      ? cats.disliked.concat({ imageId, url, id })
+      : [{ imageId, url, id }],
   };
 
   localStorage.setItem("cats", JSON.stringify(cats));
@@ -38,10 +38,7 @@ export const removeCat = (imageId: string) => {
   localStorage.setItem("cats", JSON.stringify(cats));
 };
 
-export const getImageUrl = (imageId: string): string => {
+export const getVotesFromLocalStorage = (): Iimage[] => {
   let cats: IsaveVotes = JSON.parse(localStorage.getItem("cats") || "{}");
-
-  const likedCat = cats?.liked?.find((cat: Iimage) => cat.imageId === imageId);
-
-  return likedCat?.url ?? "";
+  return cats?.liked;
 };

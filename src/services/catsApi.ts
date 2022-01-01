@@ -37,8 +37,11 @@ export const vote = async (imageId: string, value: number, url: string) => {
   };
 
   try {
-    await Axios.post("votes", body);
-    value === 0 ? dislikeCat(imageId, url) : likeCat(imageId, url);
+    const voteId = await Axios.post("votes", body);
+
+    value === 0
+      ? dislikeCat(imageId, url, voteId.data.id)
+      : likeCat(imageId, url, voteId.data.id);
   } catch (error) {
     console.log(error);
   }

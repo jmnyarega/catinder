@@ -3,12 +3,9 @@ import { useVote } from "../../hooks/vote";
 
 const cats = [
   {
-    country_code: null,
-    created_at: "2018-10-24T08:36:16.000Z",
+    url: "https://cdn2.thecatapi.com/images/5vk.jpg",
     id: 31099,
-    image_id: "4lo",
-    sub_id: null,
-    value: 0,
+    imageId: "4lo",
   },
 ];
 

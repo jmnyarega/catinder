@@ -38,7 +38,7 @@ const Favourites: React.FC = () => {
                 actions={[
                   <Button
                     onClick={() =>
-                      removeFavouriteHandler(+cat?.id!, cat.image_id)
+                      removeFavouriteHandler(+cat?.id!, cat.imageId)
                     }
                     type="primary"
                     danger

@@ -1,30 +1,27 @@
 import { useEffect, useState } from "react";
 
 // services
-import { getVottedCats, removeVottedCat } from "../services/catsApi";
-import { getImageUrl } from "../services/store";
+import { removeVottedCat } from "../services/catsApi";
+import { getVotesFromLocalStorage } from "../services/store";
 
 // types
-import { IVote } from "./../types/cat.types";
+import { Iimage } from "./../types/cat.types";
 
 export const useVote = () => {
-  const [cats, setCats] = useState<IVote[]>([]);
+  const [cats, setCats] = useState<Iimage[]>([]);
   const [isLoading, setIsloading] = useState(false);
 
-  const getVotes = async () => {
+  const getVotes = () => {
     setIsloading(true);
-    const cats = await getVottedCats();
-    const catsWithUrl = cats.map((cat: IVote) => ({
-      ...cat,
-      url: getImageUrl(cat.image_id),
-    }));
-    setCats(catsWithUrl);
+    const votes = getVotesFromLocalStorage();
+
+    setCats(votes);
     setIsloading(false);
   };
 
   const deleteVote = async (voteId: number, imageId: string) => {
     await removeVottedCat(voteId, imageId);
-    await getVotes();
+    getVotes();
   };
 
   useEffect(() => {
