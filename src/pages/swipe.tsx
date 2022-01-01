@@ -23,7 +23,6 @@ const Swipe: React.FC = () => {
     <div style={styles.container}>
       <Spin spinning={isLoading}>
         <Card
-          loading={isLoading}
           hoverable
           cover={<CoverImage url={cat?.url || ""} styles={styles.coverImage} />}
           actions={actions(handleSwipe)}

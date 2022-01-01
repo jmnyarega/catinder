@@ -35,7 +35,9 @@ export const dislikeCat = (
 export const removeCat = (imageId: string) => {
   let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
 
-  const likedCats = cats?.liked.filter((cat: Image) => cat.imageId !== imageId);
+  const likedCats = cats?.liked?.filter(
+    (cat: Image) => cat.imageId !== imageId
+  );
 
   cats.liked = likedCats;
 
@@ -45,7 +47,7 @@ export const removeCat = (imageId: string) => {
 export const getImageUrl = (imageId: string): string | undefined => {
   let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
 
-  const likedCat = cats?.liked.find((cat: Image) => cat.imageId === imageId);
+  const likedCat = cats?.liked?.find((cat: Image) => cat.imageId === imageId);
 
   return likedCat?.url;
 };
