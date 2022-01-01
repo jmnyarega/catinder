@@ -9,7 +9,7 @@
  - nodejs - LTS version
  - yarn or npm
 
-### To run the application locally on your machine
+# To run the application locally on your machine
 
   #### Download project from github using using git
     - Clone the repository
