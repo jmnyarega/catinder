@@ -14,7 +14,7 @@ import React from "react";
 const Favourites: React.FC = () => {
   const { cats, isLoading, deleteVote } = useVote();
 
-  const removeFavouriteHandler = (voteId: any, imageId: string) => {
+  const removeFavouriteHandler = (voteId: number, imageId: string) => {
     deleteVote(voteId, imageId);
   };
 
@@ -37,7 +37,9 @@ const Favourites: React.FC = () => {
               <List.Item
                 actions={[
                   <Button
-                    onClick={() => removeFavouriteHandler(cat.id, cat.image_id)}
+                    onClick={() =>
+                      removeFavouriteHandler(+cat?.id!, cat.image_id)
+                    }
                     type="primary"
                     danger
                   >

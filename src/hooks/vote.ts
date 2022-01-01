@@ -5,16 +5,16 @@ import { getVottedCats, removeVottedCat } from "../services/catsApi";
 import { getImageUrl } from "../services/store";
 
 // types
-import { Vote } from "./../types/cat.types";
+import { IVote } from "./../types/cat.types";
 
 export const useVote = () => {
-  const [cats, setCats] = useState<Vote[]>([]);
+  const [cats, setCats] = useState<IVote[]>([]);
   const [isLoading, setIsloading] = useState(false);
 
   const getVotes = async () => {
     setIsloading(true);
     const cats = await getVottedCats();
-    const catsWithUrl = cats.map((cat: Vote) => ({
+    const catsWithUrl = cats.map((cat: IVote) => ({
       ...cat,
       url: getImageUrl(cat.image_id),
     }));

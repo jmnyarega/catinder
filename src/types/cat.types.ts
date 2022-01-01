@@ -1,4 +1,4 @@
-export type Cat = {
+export type ICat = {
   breeds: [];
   id: string;
   url: string;
@@ -6,7 +6,7 @@ export type Cat = {
   height: number;
 };
 
-export type Vote = {
+export type IVote = {
   image_id: string;
   sub_id: string;
   value: number;
@@ -14,14 +14,14 @@ export type Vote = {
   id?: string;
 };
 
-export type Image = {
+export type Iimage = {
   imageId: string | undefined;
   url: string | undefined;
 };
 
-export type Votes = {
-  liked: Image[];
-  disliked: Image[];
+export type IsaveVotes = {
+  liked: Iimage[];
+  disliked: Iimage[];
 };
 
 export type IStyles = {

@@ -16,7 +16,7 @@ const Swipe: React.FC = () => {
 
   const handleSwipe = (value: number) => {
     fetchCat();
-    vote(cat?.id, value, cat?.url);
+    vote(cat?.id ?? "", value, cat?.url ?? "");
   };
 
   return (

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { getRandomCatService } from "../services/catsApi";
 
 // types
-import { Cat } from "./../types/cat.types";
+import { ICat } from "./../types/cat.types";
 
 export const useGetCats = () => {
-  const [cat, setCat] = useState<Cat>();
+  const [cat, setCat] = useState<ICat>();
   const [isLoading, setIsloading] = useState(false);
 
   const fetchCat = async () => {

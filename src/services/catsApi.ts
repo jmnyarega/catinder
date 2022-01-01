@@ -3,21 +3,21 @@ import Axios from "../helpers/authentication";
 import { dislikeCat, likeCat, removeCat } from "./store";
 
 // types
-import { Cat, Vote } from "../types/cat.types";
+import { ICat, IVote } from "../types/cat.types";
 
-export const getRandomCatService = async (): Promise<Cat[]> => {
+export const getRandomCatService = async (): Promise<ICat[]> => {
   const cat = await Axios.get("/images/search");
   return cat.data;
 };
 
-export const getCatById = async (imageId: string): Promise<Cat> => {
+export const getCatById = async (imageId: string): Promise<ICat> => {
   const cat = await Axios.get(`images/${imageId}`);
   return cat.data;
 };
 
-export const getVottedCats = async (): Promise<Vote[]> => {
+export const getVottedCats = async (): Promise<IVote[]> => {
   const cats = await Axios.get("votes");
-  return cats.data.filter((vote: Vote) => vote.value > 0);
+  return cats.data.filter((vote: IVote) => vote.value > 0);
 };
 
 export const removeVottedCat = async (voteId: number, imageId: string) => {
@@ -29,13 +29,9 @@ export const removeVottedCat = async (voteId: number, imageId: string) => {
   }
 };
 
-export const vote = async (
-  imageId: string | undefined,
-  value: number,
-  url: string | undefined
-) => {
-  const body: Vote = {
-    image_id: imageId || "",
+export const vote = async (imageId: string, value: number, url: string) => {
+  const body: IVote = {
+    image_id: imageId,
     sub_id: "josiah",
     value,
   };

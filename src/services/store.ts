@@ -1,10 +1,7 @@
-import { Image, Votes } from "../types/cat.types";
+import { Iimage, IsaveVotes } from "../types/cat.types";
 
-export const likeCat = (
-  imageId: string | undefined,
-  url: string | undefined
-) => {
-  let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
+export const likeCat = (imageId: string, url: string) => {
+  let cats: IsaveVotes = JSON.parse(localStorage.getItem("cats") || "{}");
 
   cats = {
     ...cats,
@@ -16,11 +13,8 @@ export const likeCat = (
   localStorage.setItem("cats", JSON.stringify(cats));
 };
 
-export const dislikeCat = (
-  imageId: string | undefined,
-  url: string | undefined
-) => {
-  let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
+export const dislikeCat = (imageId: string, url: string) => {
+  let cats: IsaveVotes = JSON.parse(localStorage.getItem("cats") || "{}");
 
   cats = {
     ...cats,
@@ -33,10 +27,10 @@ export const dislikeCat = (
 };
 
 export const removeCat = (imageId: string) => {
-  let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
+  let cats: IsaveVotes = JSON.parse(localStorage.getItem("cats") || "{}");
 
   const likedCats = cats?.liked?.filter(
-    (cat: Image) => cat.imageId !== imageId
+    (cat: Iimage) => cat.imageId !== imageId
   );
 
   cats.liked = likedCats;
@@ -44,10 +38,10 @@ export const removeCat = (imageId: string) => {
   localStorage.setItem("cats", JSON.stringify(cats));
 };
 
-export const getImageUrl = (imageId: string): string | undefined => {
-  let cats: Votes = JSON.parse(localStorage.getItem("cats") || "{}");
+export const getImageUrl = (imageId: string): string => {
+  let cats: IsaveVotes = JSON.parse(localStorage.getItem("cats") || "{}");
 
-  const likedCat = cats?.liked?.find((cat: Image) => cat.imageId === imageId);
+  const likedCat = cats?.liked?.find((cat: Iimage) => cat.imageId === imageId);
 
-  return likedCat?.url;
+  return likedCat?.url ?? "";
 };
