@@ -2,31 +2,31 @@
   - Tinder app for cats
 
 ### Screenshots
-   - Swipe
-   ![./screenshots/swipe.png]
-   
-   - Favourites
-   ![./screenshots/remove.png]
+   ![swipe.png]( ./screenshots/swipe.png )
+   ![favourites.png]( ./screenshots/remove.png )
 
 ### System prerequisites
  - nodejs - LTS version
  - yarn or npm
 
 ### To run the application locally on your machine
-  - Clone the repository
-  - Checkout to the root directory of the application
-  - Download all the required packages for the application by running - `yarn install or npm install`
-```bash
-      yarn install
-      // or
-      npm install
-```
-  - To run the application
 
-```bash
-      yarn start
-```
+  #### Download project from github using using git
+    - Clone the repository
+    - Checkout to the root directory of the application
 
-### To run tests
-   - checkout to the root directory of the app
-   - run `yarn test`
+  #### Install depedencies
+    - Download all the required packages for the application by running - `pm install`
+
+  #### Setup environment variables
+    - Create an .env file at the root directory of your project
+    - Add REACT_APP_CAT_API_URL=<cat_api_url> to the .env file
+    - Get the cat api key from [cat-api-key](https://docs.thecatapi.com/authentication)
+    - Add REACT_APP_CAT_API_KEY=<cat_api_key> to the .env file
+
+  #### Run the application
+    - To run the application, run `npm start`
+
+  #### Run run tests
+    - checkout to the root directory of the app
+    - run `npm test`
